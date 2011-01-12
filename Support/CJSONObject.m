@@ -20,7 +20,7 @@
 		}
 	return(self);
 	}
-	
+
 - (void)dealloc
 	{
 	[dictionary release];

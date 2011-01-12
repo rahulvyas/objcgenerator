@@ -34,8 +34,8 @@ def main(args):
 
 	####################################################################
 
-#	theDefaultTemplateDirectory = pkg_resources.resource_filename('emogenerator', 'templates')
-	theDefaultTemplateDirectory = '/Volumes/Users/schwa/Desktop/emogenerator/objcgenerator/templates'
+#	theDefaultTemplateDirectory = pkg_resources.resource_filename('objcgenerator', 'templates')
+	theDefaultTemplateDirectory = '/Volumes/Users/schwa/Desktop/objcgenerator/objcgenerator/templates'
 
 	parser = optparse.OptionParser(usage=theUsage, version=theVersion)
 	parser.add_option('-i', '--input', action='store', dest='input', type='string', metavar='INPUT',
@@ -73,15 +73,15 @@ def main(args):
 		theOptions.input = theArguments.pop(0)
 
 	if True:
-		emogenerator(theOptions, theArguments)
+		objcgenerator(theOptions, theArguments)
 	else:
 		try:
-			emogenerator(theOptions, theArguments)
+			objcgenerator(theOptions, theArguments)
 		except Exception, e:
 			logger.error('Error: %s' % str(e))
 			sys.exit(1)
 
-def emogenerator(options, inArguments):
+def objcgenerator(options, inArguments):
 	# If we don't have an input file lets try and find one in the cwd
 	if options.input == None:
 		raise Exception('Could not find a data model file.')
@@ -195,5 +195,5 @@ def emogenerator(options, inArguments):
 			file(theOutputPath, 'w').write(theNewContent)
 
 if __name__ == '__main__':
-	os.chdir(os.path.expanduser('~/Desktop/emogenerator/tests'))
-	main(['emogenerator', '-i', 'test.plist'])
+	os.chdir(os.path.expanduser('~/Desktop/objcgenerator/tests'))
+	main(['objcgenerator', '-i', 'test.plist'])

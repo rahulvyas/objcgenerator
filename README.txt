@@ -1,25 +1,20 @@
-emogenerator
+objcgenerator
 ============
 
 :author: Jonathan Wight <jwight@mac.com>
-:description: Estranged Managed Object Generator
+:description: Objective-C Code Generator
 
 
 Goal
 ----
-Python tool to generate Objective-C wrappers for CoreData object models. emogenerator is inspired by Jonathan "Wolf" Rentzsch's mogenerator_ tool.
-
-emogenerator also uses special comment 'guard' sections in the generated code to allow you to mix and match your code with auto-generated code. emogenerator also uses a mature and well maintained template system (genshi_) to generate Objective-C source.
-
-.. _mogenerator: http://rentzsch.com/code/mogenerator
-.. _genshi: http://genshi.edgewall.org/
+TODO
 
 Install
 -------
 
 With setuptools_::
 
-  $ easy_install -U emogenerator
+  $ easy_install -U objcgenerator
 
 .. _setuptools: http://peak.telecommunity.com/DevCenter/setuptools
 
@@ -29,17 +24,14 @@ Usage
 
 In a directory containing a CoreData .xcdatamodel (or .xcdatamodeld) file:
 
- Usage: emogenerator [options] [INPUT]
+ Usage: objcgenerator [options] [INPUT]
 
  Options:
    --version             show program's version number and exit
    -h, --help            show this help message and exit
-   --momc=MOMC           The momc compiler program to use when converting
-                         xcdatamodel files to mom files (default:
-                         '/Developer/usr/bin/momc')
    -i INPUT, --input=INPUT
-                         The input xcdatamodel or mom file (type is inferred by
-                         file extension).
+                         The class specification file (type is inferred by
+                         file extension, either plist or json).
    -o OUTPUT, --output=OUTPUT
                          Output directory for generated files.
    -t TEMPLATE, --template=TEMPLATE

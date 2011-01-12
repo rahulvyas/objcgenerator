@@ -30,11 +30,5 @@ setup(
 	long_description = file('README.txt').read(),
 	platform = 'Mac OS X',
 	url = 'http://github.com/schwa/objcgenerator',
-
-# 	entry_points={
-# 	'console_scripts': ['vkr = virtualkeyring:main'],
-# 	'setuptools.installation': [
-# 	'eggsecutable = virtualkeyring:main'],
-# 	},
 	)
 

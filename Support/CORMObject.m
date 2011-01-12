@@ -25,36 +25,36 @@ static id MyGetter(CORMObject *self, SEL selector);
 + (void)registerProperty:(NSString *)inName transformer:(NSValueTransformer *)inValueTransformer flags:(NSUInteger)inFlags
 	{
 	NSAutoreleasePool *thePool = [[NSAutoreleasePool alloc] init];
-	
+
 	if (inValueTransformer)
 		{
 		[[self valueTransformers] setObject:inValueTransformer forKey:inName];
 		}
-	
+
     if (class_addMethod(self, NSSelectorFromString(inName), (IMP)MyGetter, "@@:") == NO)
 		{
 		NSLog(@"Can't add method to class.");
 		}
-	
+
 	[thePool release];
 	}
-	
+
 + (NSMutableDictionary *)valueTransformers
 	{
 	static char *sTransformerKey = "ORM_transformers";
-	
+
 	NSMutableDictionary *theTransformers = objc_getAssociatedObject(self, sTransformerKey);
 	if (theTransformers == NULL)
 		{
 		theTransformers = [NSMutableDictionary dictionary];
-		
+
 		objc_setAssociatedObject(self, sTransformerKey, theTransformers, OBJC_ASSOCIATION_RETAIN);
 		}
 	return(theTransformers);
 	}
 
 #pragma mark -
-	
+
 - (void)dealloc
 	{
 	[valueCache release];

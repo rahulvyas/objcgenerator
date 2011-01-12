@@ -1,1 +1,1 @@
-from emogenerator import main, emogenerator
+from objcgenerator import main, objcgenerator

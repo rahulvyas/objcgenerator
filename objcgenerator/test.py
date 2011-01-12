@@ -32,7 +32,7 @@ class TypeProcessor(object):
 		return theProperties
 
 
-d = json.load(file('/Volumes/Users/schwa/Desktop/emogenerator/tests/test_data.json'))
+d = json.load(file('/Volumes/Users/schwa/Desktop/objcgenerator/tests/test_data.json'))
 
 t = TypeProcessor()
 t.process_object(d)
