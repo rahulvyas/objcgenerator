@@ -1,0 +1,16 @@
+{
+    "name": "Acme School",
+    "users": [
+        {
+            "age": 50,
+            "name": "Joe",
+            "tags": [
+                "tag1",
+                "tags2"
+            ]
+        },
+        {
+            "name": "Billy Bob"
+        }
+    ]
+}

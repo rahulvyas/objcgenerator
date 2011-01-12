@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import objcgenerator
+import sys
+
+objcgenerator.main(sys.argv)

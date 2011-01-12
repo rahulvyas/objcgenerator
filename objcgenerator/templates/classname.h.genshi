@@ -1,0 +1,28 @@
+//
+//  ${entity.className}.h
+//  <#ProjectName#>
+//
+//  Created by ${author} on ${date}
+//  Copyright ${year} ${organizationName}. All rights reserved.
+//
+
+{% choose entity.superClassName %}\
+{% when 'NSObject' %}\
+#import <Foundation/Foundation.h>
+{% end %}\
+{% otherwise %}\
+#import "${entity.superClassName}.h"
+{% end %}\
+{% end %}\
+
+{% for className in entity.relatedEntityClassNames %}\
+@class ${className};
+{% end %}\
+@interface ${entity.className} : ${entity.superClassName} {
+}
+
+{% for property in entity.properties %}\
+@property (readwrite, nonatomic, ${property.mode}) ${property.type} ${property.name};
+{% end %}\
+
+@end

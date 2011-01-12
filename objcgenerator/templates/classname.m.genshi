@@ -1,0 +1,31 @@
+//
+//  ${entity.className}.m
+//  <#ProjectName#>
+//
+//  Created by ${author} on ${date}
+//  Copyright ${year} ${organizationName}. All rights reserved.
+//
+
+#import "${entity.className}.h"
+
++ (void)load
+	{
+	NSAutoreleasePool *thePool = [[NSAutoreleasePool alloc] init];
+
+{% for property in entity.properties %}\
+	[self registerProperty:@"${property.name}" transformer:NULL flags:0];
+{% end %}{# for property in entity.properties #}\
+
+	[thePool release];
+	}
+
+{% for className in entity.relatedEntityClassNames %}\
+#import "${className}.h"
+{% end %}\
+@implementation ${entity.className}
+
+{% for property in entity.properties %}\
+@dynamic ${property.name};
+{% end %}{# for property in entity.properties #}\
+
+@end
